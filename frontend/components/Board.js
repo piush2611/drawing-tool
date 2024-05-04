@@ -8,21 +8,21 @@ const Board = () => {
 
   const { stroke, strokeStyle } = useCanvasContext();
 
-  const changeStroke = (lineWidth) => {
-    const ctx = boardRef.current?.getContext('2d');
-    ctx.lineWidth = lineWidth;
-  }
-
   useEffect(() => {
+    const changeStroke = (lineWidth) => {
+      const ctx = boardRef.current?.getContext('2d');
+      ctx.lineWidth = lineWidth;
+    }
+    
     changeStroke(stroke)
   }, [stroke])
 
-  const changeStrokeStyle = (color) => {
-    const ctx = boardRef.current?.getContext('2d');
-    ctx.strokeStyle = color;
-  }
-
   useEffect(() => {
+    const changeStrokeStyle = (color) => {
+      const ctx = boardRef.current?.getContext('2d');
+      ctx.strokeStyle = color;
+    }
+
     changeStrokeStyle(strokeStyle)
   }, [strokeStyle])
 
@@ -37,8 +37,6 @@ const Board = () => {
   const beginPath = (x, y) => {
     const ctx = boardRef.current?.getContext('2d');
     ctx.beginPath();
-    ctx.strokeStyle = 'black';
-    ctx.lineWidth = 1;
     ctx.moveTo(x, y);
   }
 
